@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attribute binding</title>
+</head>
+<body>
+	<div id="root">
+		<!-- Below code will produce "tip" when you mouse hove on the button
+		Because title is not a vue controlled attribute -->
+		<!-- <button title="tip">Hover Me</button> -->
+
+		<button :title="message">Hover Me</button>
+	</div>
+
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
+	<script>
+		new Vue({
+			el: '#root',
+			data: {
+				message: "I am the title"
+			}
+		});
+	</script>
+</body>
+</html>
