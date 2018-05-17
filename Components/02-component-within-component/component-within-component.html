@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Component within Components</title>
+</head>
+<body>
+	<div id="root">
+		<task-list></task-list>
+	</div>
+
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
+	<script>
+		Vue.component('task-list', {
+			template: `
+				<div>
+					<task v-for="task in tasks">{{task.name}}</task>
+				</div>
+			`,
+			data() {
+				return {
+					tasks: [
+						{name:'Go to Bank', completed:'false'},
+						{name:'Go to Work', completed:'true'},
+						{name:'Go to movie', completed:'false'},
+					]
+				}
+			}
+		});
+
+		Vue.component('task', {
+			template: '<li><slot></slot></li>'
+		});
+		
+		new Vue({
+			el: '#root'
+		});
+	</script>
+</body>
+</html>

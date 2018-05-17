@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic Component</title>
+</head>
+<body>
+	<div id="root">
+		<task>Go to Bank</task>
+		<task>Go to Work</task>
+		<task>Go to movie</task>
+	</div>
+
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
+	<script>
+		Vue.component('task', {
+			template: '<li><slot></slot></li>'
+		});
+		new Vue({
+			el: '#root'
+		});
+	</script>
+</body>
+</html>
