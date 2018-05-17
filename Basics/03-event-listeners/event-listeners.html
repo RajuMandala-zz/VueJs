@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Listeners</title>
+</head>
+<body>
+	<div id="root">
+		<!-- <li v-for="name in names">{{ name }}</li> -->
+
+		<li v-for="name in names" v-text="name"></li>
+		<input type="text" v-model="name" @keyup.enter="addName">
+		<button @click="addName">Add Name</button>
+	</div>
+
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
+	<script>
+		new Vue({
+			el: '#root',
+			data: {
+				name: '',
+				names: ['Raju', 'Shyam', 'Varun']
+			},
+			methods: {
+				addName() {
+					this.names.push(this.name);
+					this.name = '';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
